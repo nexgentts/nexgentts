@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="미국 TikTok Shop 10주 1:1 멘토링 프로그램">
+  <meta name="description" content="미국 TikTok Shop을 시작하고 싶은 크리에이터를 위한 10주 실행 멘토링">
   <title>NEXGEN</title>
   <style>
     :root {
@@ -122,6 +122,9 @@
     }
     .button:hover { transform: translate(-3px,-3px); background: #e4ff7a; }
     .button--small { min-width: 0; padding: 12px 15px; }
+    .button--coming { gap: 11px; color: rgba(255,255,255,.76); border-color: #6f7069; background: #3f403b; cursor: not-allowed; }
+    .button--coming:hover { transform: none; background: #3f403b; }
+    .button--coming > span { padding: 4px 5px; color: var(--lime); border: 1px solid rgba(215,255,54,.62); font-size: 8px; font-weight: 900; letter-spacing: .07em; line-height: 1; }
     .header__actions { display: flex; align-items: center; gap: 17px; }
     .social-links { display: flex; align-items: center; gap: 7px; }
     .social-link { width: 28px; height: 28px; display: grid; place-items: center; color: rgba(255,255,255,.84); border: 1px solid rgba(255,255,255,.38); border-radius: 50%; font-size: 15px; font-weight: 800; line-height: 1; transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s ease; }
@@ -196,11 +199,13 @@
     .mentor__grid > article:last-child { border-right: 0; }
     .credential__label { margin-bottom: auto; }
     .number { display: block; margin: 33px 0 20px; color: var(--lime); font-size: clamp(56px, 5.5vw, 90px); font-weight: 900; line-height: .85; letter-spacing: -.095em; }
+    .number--revenue { font-size: clamp(37px, 3.65vw, 61px); line-height: .9; letter-spacing: -.08em; }
     .credential__title { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.55; letter-spacing: -.04em; }
     .credential__detail { margin: 16px 0 0; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.25); color: rgba(255,255,255,.67); font-size: 12px; font-weight: 600; line-height: 1.55; }
     .credential__word { margin: 34px 0 24px; color: var(--lime); font-size: clamp(30px, 3vw, 49px); font-weight: 900; line-height: .86; letter-spacing: -.075em; }
-    .credential--l3 { position: relative; }
+    .credential--l3, .credential--consulting { position: relative; }
     .credential--l3 .credential__detail { padding-right: 98px; }
+    .credential--consulting .credential__detail { padding-right: 98px; }
     .evidence-peek { position: absolute; right: 23px; top: 21px; width: 88px; height: 68px; padding: 0; border: 0; background: transparent; cursor: pointer; }
     .evidence-peek img { position: absolute; top: 0; width: 39px; height: 58px; object-fit: cover; object-position: top; border: 1px solid rgba(255,255,255,.73); box-shadow: 0 5px 13px rgba(0,0,0,.35); transition: transform .22s ease; }
     .evidence-peek img:nth-of-type(1) { left: 1px; transform: rotate(-8deg); }
@@ -217,6 +222,7 @@
     .proof-modal__head strong { display: block; margin-top: 8px; font-size: 22px; line-height: 1.2; letter-spacing: -.06em; }
     .proof-modal__close { width: 38px; height: 38px; border: 1px solid var(--ink); background: transparent; cursor: pointer; font-size: 20px; }
     .proof-modal__images { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+    .proof-modal__images--four { grid-template-columns: repeat(2, 1fr); }
     .proof-modal__images figure { margin: 0; }
     .proof-modal__images img { display: block; width: 100%; max-height: 67vh; object-fit: contain; background: #e4e3de; }
     .proof-modal__images figcaption { margin-top: 9px; color: #55554e; font-size: 10px; font-weight: 800; letter-spacing: .06em; }
@@ -274,6 +280,11 @@
     .audience__grid div:hover::after { transform: translate(3px,-3px); }
     .audience__grid span { width: max-content; padding: 5px 7px; color: var(--lime-ink); background: rgba(20,136,61,.1); font-size: 10px; font-weight: 900; letter-spacing: .08em; }
     .audience__grid p { max-width: 390px; margin: 16px 0 0; color: var(--ink); font-size: clamp(17px,1.55vw,22px); font-weight: 800; line-height: 1.42; letter-spacing: -.045em; }
+    .audience__grid div.audience-card--not-for { border-color: rgba(143,72,75,.42); background: rgba(252,246,244,.9); }
+    .audience__grid div.audience-card--not-for::after { color: #974b4e; }
+    .audience__grid div.audience-card--not-for:hover { background: #f3e3df; box-shadow: 5px 5px 0 #974b4e; }
+    .audience__grid div.audience-card--not-for span { color: #974b4e; background: rgba(151,75,78,.1); }
+    .audience__grid div.audience-card--not-for p { color: #482f31; }
 
     .faq__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 10vw; padding-top: 59px; }
     .faq details { padding: 21px 0; border-top: 1px solid var(--ink); }
@@ -302,6 +313,9 @@
       .nav { display: none; }
       .header__inner { height: 65px; }
       .header .button { min-width: 0; padding: 10px 12px; }
+      .header .social-links { display: none; }
+      .header .button--coming { gap: 7px; font-size: 10px; }
+      .header .button--coming > span { font-size: 7px; }
       .hero { min-height: 690px; }
       .hero__content { padding-top: 104px; }
       .hero__copy { margin-bottom: 148px; }
@@ -324,6 +338,7 @@
       .mentor__grid > article { min-height: 243px; padding: 20px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.4); }
       .mentor__grid > article:last-child { border-bottom: 0; }
       .number { margin: 26px 0 17px; font-size: 65px; }
+      .number--revenue { font-size: 44px; }
       .credential__word { margin: 28px 0 19px; font-size: 41px; }
       .credential__title { font-size: 15px; }
       .credential--l3 .credential__detail { padding-right: 88px; }
@@ -346,6 +361,7 @@
       .audience__note { max-width: none; }
       .audience__grid { grid-template-columns: 1fr; gap: 10px; }
       .audience__grid div, .audience__grid div:nth-child(even) { min-height: 116px; padding: 17px 48px 17px 17px; border-left: 1px solid rgba(16,17,15,.21); }
+      .audience__grid div.audience-card--not-for { border-color: rgba(143,72,75,.42); }
       .audience__grid div::after { right: 16px; bottom: 14px; }
       .audience__grid p { margin-top: 13px; font-size: 16px; }
       .faq__grid { padding-bottom: 0; }
@@ -372,7 +388,7 @@
           <a class="social-link social-link--threads" href="https://www.threads.com/@nexgen.tts?xmt=AQG0T52NQ5Fl3Qpe1ZvXP9AsJbxg9g4Sgyky6FubG5P8tXw" target="_blank" rel="noopener noreferrer" aria-label="Threads">@</a>
           <a class="social-link social-link--email" href="mailto:jinttsus@gmail.com" aria-label="이메일">✉</a>
         </div>
-        <a class="button button--small" href="#contact">상담 신청하기 <span>↗</span></a>
+        <span class="button button--small button--coming" aria-disabled="true">1:1 컨설팅 신청하기 <span>COMING SOON</span></span>
       </div>
     </div>
   </header>
@@ -381,51 +397,51 @@
     <section class="hero" id="top">
       <div class="aurora" aria-hidden="true"><span></span></div>
       <div class="wrap hero__content">
-        <div class="hero__topline tag"><span>US TIKTOK SHOP</span><span>10-WEEK MENTORSHIP</span></div>
+        <div class="hero__topline tag"><span>US TIKTOK SHOP</span><span>10-WEEK EXECUTION MENTORING</span></div>
         <div class="hero__copy">
-          <p class="eyebrow">KOREA → GLOBAL</p>
-          <h1 class="display">한국에서 시작해,<br><span class="accent-dark">미국 시장에서</span><br>통하는 크리에이터로.</h1>
+          <p class="eyebrow">FROM KOREA · FOR THE US MARKET</p>
+          <h1 class="display">미국 TikTok Shop,<br><span class="accent-dark">혼자 헤매지 않고</span><br>수익화 구조부터.</h1>
           <div class="hero__bottom">
-            <p>틱톡샵이 무엇인지부터 콘텐츠, 상품, 브랜드 협업까지.<br>10주 동안 1:1로 함께 설계하는 실전 멘토링.</p>
+            <p>계정·상품·콘텐츠·업로드 루틴까지.<br>10주 동안, 혼자서도 실행할 수 있는 시작 구조를 만듭니다.</p>
             <a class="circle-arrow" href="#program" aria-label="프로그램 자세히 보기">↓</a>
           </div>
         </div>
         <div class="hero__facts">
-          <div><span>FOCUS</span><strong>US TikTok Shop</strong></div>
-          <div><span>FORMAT</span><strong>1:1 + Community</strong></div>
-          <div><span>OBJECTIVE</span><strong>Build a system</strong></div>
+          <div><span>FOR WHO</span><strong>수익화를 시작할 크리에이터</strong></div>
+          <div><span>FORMAT</span><strong>10주 · 1:1 + Community</strong></div>
+          <div><span>WHAT REMAINS</span><strong>계정 · 콘텐츠 · 운영 루틴</strong></div>
         </div>
       </div>
     </section>
 
     <section class="section opportunity" id="program">
       <div class="wrap">
-        <div class="section-head tag"><span>01</span><span>THE OPPORTUNITY</span></div>
+        <div class="section-head tag"><span>01</span><span>START WITH THE STRUCTURE</span></div>
         <div class="opportunity__grid">
-          <h2 class="display display--medium">한국 시장을 넘어,<br>글로벌 시장에서<br><span class="accent-light">통하는 콘텐츠를.</span></h2>
+          <h2 class="display display--medium">영상부터 찍기 전에,<br>내가 갈 수 있는<br><span class="accent-light">수익화 경로부터.</span></h2>
           <div class="body-copy">
-            <p>미국 TikTok Shop에서는 이미 한국 브랜드들이 존재감을 만들고 있습니다. 이제 크리에이터 역시, 한국인이 가장 잘하는 것을 세계 시장에 보여줄 차례입니다.</p>
-            <p>TikTok Shop은 일부 톱 인플루언서만의 시장이 아닙니다. 경험이 없는 분도 기초부터 참여할 수 있으며, 제대로 된 방향과 실행 시스템이 있다면 기회를 만들어갈 수 있습니다.</p>
+            <p>처음에 막히는 이유는 편집 기술이 부족해서가 아닙니다. 내 상황에서 가능한 계정은 무엇인지, 어떤 상품을 누구에게 보여줄지, 무엇을 반복해야 하는지가 정리되지 않았기 때문입니다.</p>
+            <p>이 프로그램은 막연히 영상을 많이 올리는 대신, 계정·콘텐츠·상품·운영 루틴을 연결해 나만의 시작 구조를 만드는 데 집중합니다.</p>
           </div>
         </div>
-        <div class="path"><span>LOCAL INSIGHT</span><b>→</b><span>GLOBAL EXECUTION</span><b>→</b><span>YOUR OWN SYSTEM</span></div>
+        <div class="path"><span>STARTING POINT</span><b>→</b><span>ACCOUNT · CONTENT · PRODUCT</span><b>→</b><span>REPEATABLE SYSTEM</span></div>
       </div>
     </section>
 
     <section class="section dark mentor">
       <div class="wrap">
-        <div class="section-head section-head--dark tag"><span>02</span><span>WHY THIS MENTORING</span></div>
-        <div class="mentor__heading"><p class="eyebrow accent-dark">FROM THE FIELD, NOT THE FEED.</p><h2 class="display display--medium">저를 소개합니다<span class="accent-dark">.</span></h2></div>
+        <div class="section-head section-head--dark tag"><span>02</span><span>PROOF, NOT PROMISE</span></div>
+        <div class="mentor__heading"><p class="eyebrow accent-dark">FROM THE FIELD, NOT THE FEED.</p><h2 class="display display--medium">말보다,<br>실전 운영 기록으로<span class="accent-dark">.</span></h2></div>
         <div class="mentor__intro">
-          <p>미국 현지 에이전시와 크리에이터를 직접 경험하며 쌓은 기준으로, 계정 세팅부터 콘텐츠 방향, 제품 선택, 브랜드 협업까지 당신만의 실행 구조를 함께 만듭니다.</p>
+          <p>한국에 거주하며 미국 TikTok Shop 크리에이터로 직접 운영해봤고, 현지 에이전시·크리에이터와 일하며 기준을 쌓아왔습니다. 계정 세팅부터 콘텐츠 방향, 상품 선택, 브랜드 협업까지 실제로 실행하는 순서를 함께 만듭니다.</p>
           <div class="mentor__base"><span>BASE &amp; MARKET</span><strong>한국 거주,<br>미국 시장 실행 경험</strong></div>
         </div>
         <div class="mentor__grid">
           <article class="credential credential--l3">
-            <span class="credential__label">TIKTOK SHOP CREATOR LEVEL</span>
-            <strong class="number">L3</strong>
-            <p class="credential__title">한국에 거주하며 미국 틱톡샵 크리에이터 레벨 L3 달성</p>
-            <p class="credential__detail">L3 레벨은 월 매출 $25,000~$60,000입니다.</p>
+            <span class="credential__label">CREATOR LEVEL · PERFORMANCE</span>
+            <strong class="number number--revenue">월 매출<br>$30,000+</strong>
+            <p class="credential__title">한국 거주 상태에서 미국 TikTok Shop Creator Level L3 달성</p>
+            <p class="credential__detail">L3 등급 기준 월 매출 $25,000~$60,000 · 실제 운영 기록 확인 가능</p>
             <button class="evidence-peek" type="button" data-open-proof aria-label="TikTok Shop 성과 이미지 3장 크게 보기">
               <img data-proof-src="monthly" alt="">
               <img data-proof-src="oct09" alt="">
@@ -436,13 +452,20 @@
           <article class="credential">
             <span class="credential__label">US TIKTOK SHOP AGENCY</span>
             <strong class="number">10+</strong>
-            <p class="credential__title">미국 현지 틱톡샵 에이전시 10+ 협업 경험</p>
-            <p class="credential__detail">크리에이터 + 실무</p>
+            <p class="credential__title">미국 현지 TikTok Shop 에이전시 10+ 협업 경험</p>
+            <p class="credential__detail">크리에이터 운영과 현지 실무를 함께 경험했습니다.</p>
           </article>
-          <article class="credential">
+          <article class="credential credential--consulting">
             <span class="credential__label">CREATOR CONSULTING</span>
             <strong class="credential__word">CREATOR<br>CONSULTING</strong>
-            <p class="credential__title">미국 현지 크리에이터 다수 컨설팅 경험</p>
+            <p class="credential__title">미국 현지 크리에이터의 실행 구조를 함께 설계해 온 경험</p>
+            <p class="credential__detail">컨설팅 크리에이터 월 매출 $20,000 → $60,000+<br>최고 하루 순수익 550만 원+ 기록</p>
+            <button class="evidence-peek" type="button" data-open-client-proof aria-label="크리에이터 컨설팅 성과 이미지 4장 크게 보기">
+              <img src="assets/consulting-proof-01.png" alt="">
+              <img src="assets/consulting-proof-02.jpg" alt="">
+              <img src="assets/consulting-proof-03.jpg" alt="">
+              <span>VIEW 4 ↗</span>
+            </button>
           </article>
         </div>
       </div>
@@ -450,55 +473,55 @@
 
     <section class="section difference">
       <div class="wrap">
-        <div class="section-head tag"><span>04</span><span>WHAT CHANGES</span></div>
-        <div class="difference__head"><h2 class="display display--small">강의를 듣는 10주가 아닌,<br><span class="accent-light">실행하는 10주.</span></h2><p>이 프로그램의 목표는 지속 가능한 외화 수익 구조를 설계하고 실행하는 것입니다.</p></div>
+        <div class="section-head tag"><span>03</span><span>WHAT YOU BUILD</span></div>
+        <div class="difference__head"><h2 class="display display--small">10주 후,<br><span class="accent-light">바로 실행할 수 있는 것.</span></h2><p>수익을 보장하는 프로그램은 아닙니다. 대신 매주 실제로 만들어 보고 피드백을 반영하며, 혼자서도 이어갈 수 있는 실행 구조를 남깁니다.</p></div>
         <div class="difference__grid">
-          <article><span>01</span><h3>10주간의<br>실행 구조</h3><p>단순한 정보가 아닌, 매주 실제로 움직일 수 있는 시스템을 만듭니다.</p></article>
-          <article><span>02</span><h3>상시 1:1<br>피드백</h3><p>막히는 순간 혼자 검색하지 않도록 콘텐츠와 계정 방향을 지속적으로 점검합니다.</p></article>
-          <article><span>03</span><h3>함께 성장하는<br>커뮤니티</h3><p>같은 목표를 가진 사람들과 인사이트와 실행 과정을 나누며 성장합니다.</p></article>
+          <article><span>01</span><h3>내 시작<br>경로</h3><p>내 상황에서 가능한 계정·운영 조건을 점검하고, 무엇부터 할지 정합니다.</p></article>
+          <article><span>02</span><h3>내 콘텐츠<br>포맷</h3><p>누구에게 무엇을 보여줄지 정리하고, 반복 가능한 영상의 틀을 만듭니다.</p></article>
+          <article><span>03</span><h3>내 운영<br>루틴</h3><p>상품 선택부터 편집·업로드까지, 혼자서도 이어갈 주간 실행 루틴을 정리합니다.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section dark curriculum" id="curriculum">
       <div class="wrap">
-        <div class="section-head section-head--dark tag"><span>05</span><span>10-WEEK CURRICULUM</span></div>
-        <div class="curriculum__head"><h2 class="display display--small">배우고 끝나는 것이 아니라,<br><span class="accent-dark">내 방식으로 남기는 것.</span></h2><p>첫 계정부터 브랜드와의 장기 협업까지. 지금의 상황에 맞춰 필요한 기준을 함께 만들어갑니다.</p></div>
+        <div class="section-head section-head--dark tag"><span>04</span><span>10-WEEK CURRICULUM</span></div>
+        <div class="curriculum__head"><h2 class="display display--small">10주를 듣고 끝내는 대신,<br><span class="accent-dark">내 계정에 남기는 것.</span></h2><p>추상적인 이론을 나열하지 않습니다. 각 과정에서 무엇을 결정하고, 무엇을 만들어 다음 단계로 넘어갈지 함께 점검합니다.</p></div>
         <div class="curriculum__list">
-          <article class="lesson"><span>01</span><h3>TikTok Shop 이해와 마인드셋</h3><p>시장의 구조와 크리에이터의 역할을 이해하고, 실행 기준을 세웁니다.</p><b>↘</b></article>
-          <article class="lesson"><span>02</span><h3>미국 TikTok Shop 계정 세팅</h3><p>시작점에 맞춰 필요한 계정·운영 조건을 함께 점검합니다.</p><b>↘</b></article>
-          <article class="lesson"><span>03</span><h3>TikTok Shop 영상 스타일 익히기</h3><p>미국 시장에서 반응하는 쇼퍼블 콘텐츠의 문법을 익힙니다.</p><b>↘</b></article>
-          <article class="lesson"><span>04</span><h3>콘텐츠 포지셔닝 잡기</h3><p>누구에게 어떤 이유로 기억될지, 나만의 콘텐츠 자리를 정의합니다.</p><b>↘</b></article>
-          <article class="lesson"><span>05</span><h3>나만의 색깔과 프로덕트 셀렉션</h3><p>내 강점과 시청자에 맞는 제품 카테고리와 선택 기준을 만듭니다.</p><b>↘</b></article>
-          <article class="lesson"><span>06</span><h3>영상 기획과 촬영 구조</h3><p>반복 가능한 아이디어, 촬영, 훅 구성의 구조를 설계합니다.</p><b>↘</b></article>
-          <article class="lesson"><span>07</span><h3>영상 편집과 업로드 시스템</h3><p>꾸준히 실행할 수 있는 편집 방식과 업로드 루틴을 정리합니다.</p><b>↘</b></article>
-          <article class="lesson"><span>08</span><h3>브랜드와 일하기: 리테이너</h3><p>브랜드 협업을 이해하고 장기적인 관계를 만드는 기준을 다룹니다.</p><b>↘</b></article>
+          <article class="lesson"><span>01</span><h3>내가 갈 수 있는 수익화 경로 정하기</h3><p>시장 구조를 이해하고, 내 상황에서 가장 먼저 실행할 경로를 결정합니다.</p><b>↘</b></article>
+          <article class="lesson"><span>02</span><h3>시작 가능한 계정·운영 조건 세팅</h3><p>계정과 운영 조건을 점검하고, 시작 전에 필요한 세팅을 완료합니다.</p><b>↘</b></article>
+          <article class="lesson"><span>03</span><h3>미국 시청자가 멈추는 쇼퍼블 영상 문법</h3><p>미국 시장에서 반응하는 콘텐츠의 기준을 보고, 내 첫 포맷을 정합니다.</p><b>↘</b></article>
+          <article class="lesson"><span>04</span><h3>내게 맞는 상품을 고르는 기준</h3><p>내 콘텐츠와 시청자에 맞는 상품 카테고리와 선택 기준을 만듭니다.</p><b>↘</b></article>
+          <article class="lesson"><span>05</span><h3>반복 가능한 훅·기획·촬영 틀</h3><p>매번 새로 고민하지 않도록, 아이디어부터 촬영까지의 기본 틀을 설계합니다.</p><b>↘</b></article>
+          <article class="lesson"><span>06</span><h3>계속 올릴 수 있는 편집·업로드 루틴</h3><p>혼자서도 유지할 수 있는 편집 방식과 주간 업로드 루틴을 정리합니다.</p><b>↘</b></article>
+          <article class="lesson"><span>07</span><h3>브랜드에 제안하고 장기 협업으로 잇기</h3><p>브랜드 협업을 이해하고, 관계를 장기적으로 이어갈 기준을 만듭니다.</p><b>↘</b></article>
         </div>
       </div>
     </section>
 
     <section class="section audience">
       <div class="wrap">
-        <div class="section-head tag"><span>06</span><span>WHO IT'S FOR</span></div>
-        <div class="audience__head"><h2 class="display display--small">이런 분과<br><span class="accent-light">함께합니다.</span></h2><div class="audience__note"><span>STARTING POINT</span><p>“할 수 있을까?”보다 “어디서부터 제대로 시작할까?”를 고민하고 있다면.</p></div></div>
+        <div class="section-head tag"><span>05</span><span>WHO THIS IS FOR</span></div>
+        <div class="audience__head"><h2 class="display display--small">함께할 사람을,<br><span class="accent-light">분명히 정합니다.</span></h2><div class="audience__note"><span>STARTING POINT</span><p>“할 수 있을까?”보다 “어디서부터 제대로 실행할까?”를 고민하고 있다면.</p></div></div>
         <div class="audience__grid">
-          <div><span>01</span><p>미국 마케팅 문화에 관심 있는 분</p></div><div><span>02</span><p>제대로 된 크리에이터·마케팅 스킬을 배우고 싶은 분</p></div>
-          <div><span>03</span><p>올바른 가이드가 있다면 실행해낼 자신이 있는 분</p></div><div><span>04</span><p>TikTok Shop에 관심 있는 분</p></div>
-          <div><span>05</span><p>일회성이 아닌 지속적인 수익 구조와 실전 스킬을 원하는 분</p></div><div><span>06</span><p>어필리에이트를 해봤지만 결과가 나오지 않은 분</p></div>
-          <div><span>07</span><p>계정은 있지만 방향을 못 잡은 분</p></div><div><span>08</span><p>1:1로 꾸준히 점검받고 싶은 분</p></div>
+          <div><span>01</span><p>미국 TikTok Shop을 실제 수익 채널로 만들고 싶은 분</p></div><div><span>02</span><p>매주 콘텐츠를 만들고 피드백을 반영할 시간을 낼 수 있는 분</p></div>
+          <div><span>03</span><p>계정은 있지만, 무엇을 어떻게 올릴지 방향을 못 잡은 분</p></div><div><span>04</span><p>어필리에이트를 시도했지만 혼자 시행착오만 반복한 분</p></div>
+          <div><span>05</span><p>계정·콘텐츠·상품을 따로가 아니라 하나의 구조로 만들고 싶은 분</p></div><div><span>06</span><p>1:1 피드백을 받고 바로 실행으로 옮길 수 있는 분</p></div>
+          <div class="audience-card--not-for"><span>NOT FOR</span><p>결제만 하면 단기간 고수익이 보장된다고 기대하는 분</p></div><div class="audience-card--not-for"><span>NOT FOR</span><p>영상을 만들거나 피드백을 반영할 계획이 없는 분</p></div>
         </div>
       </div>
     </section>
 
     <section class="section faq" id="faq">
       <div class="wrap">
-        <div class="section-head tag"><span>07</span><span>FAQ</span></div>
+        <div class="section-head tag"><span>06</span><span>FAQ</span></div>
         <div class="faq__grid"><h2 class="display display--small">시작하기 전,<br><span class="accent-light">자주 묻는 질문.</span></h2>
           <div>
-            <details open><summary><span>TikTok Shop 경험이 전혀 없어도 되나요?</span><b>+</b></summary><p>네. 계정이 없어도 괜찮습니다. TikTok Shop의 구조를 이해하는 단계부터 함께 시작합니다.</p></details>
-            <details><summary><span>어떤 방식으로 진행되나요?</span><b>+</b></summary><p>10주 동안 1:1 상시 피드백과 정기 체크인, 그리고 수강생 커뮤니티를 통해 진행됩니다.</p></details>
-            <details><summary><span>한국에서도 미국 TikTok Shop을 할 수 있나요?</span><b>+</b></summary><p>가능할 수 있습니다. 참여자의 상황에 맞는 가능한 운영 방안을 함께 검토합니다.</p></details>
-            <details><summary><span>콘텐츠 경험이 없어도 가능한가요?</span><b>+</b></summary><p>가능합니다. 완벽한 시작보다 나만의 포지션과 반복 가능한 콘텐츠 시스템을 만드는 것이 먼저입니다.</p></details>
+            <details open><summary><span>TikTok Shop 경험이 전혀 없어도 되나요?</span><b>+</b></summary><p>네. 경험이 없어도 괜찮습니다. 다만 첫 단계에서 내 상황에 맞는 시작 가능 여부와 운영 조건부터 함께 점검합니다.</p></details>
+            <details><summary><span>어떤 방식으로 진행되나요?</span><b>+</b></summary><p>10주 동안 1:1 피드백과 정기 체크인, 수강생 커뮤니티를 통해 진행합니다. 매주 결정하고 만들어야 할 실행 결과물을 함께 점검합니다.</p></details>
+            <details><summary><span>한국에서도 미국 TikTok Shop을 할 수 있나요?</span><b>+</b></summary><p>공식적으로 지원되는 게 아닙니다. 그래서 계정 형태, 거주 조건, 제휴 정책 등에 따라 달라질 수 있습니다. 참여 전 현재 조건을 확인하고 가능한 운영 방향을 검토합니다.</p></details>
+            <details><summary><span>수익이 보장되나요?</span><b>+</b></summary><p>아니요. 개인의 시작 조건과 실행량, 시장 상황에 따라 결과는 다릅니다. 대신 계정·콘텐츠·상품·운영 루틴을 실제로 만들고 실행할 수 있도록 돕습니다.</p></details>
+            <details><summary><span>콘텐츠 경험이 없어도 가능한가요?</span><b>+</b></summary><p>가능합니다. 완벽한 시작보다, 내 방식으로 반복 가능한 콘텐츠 시스템을 만드는 것이 먼저입니다.</p></details>
           </div>
         </div>
       </div>
@@ -506,8 +529,8 @@
 
     <section class="dark contact" id="contact">
       <div class="wrap">
-        <div class="contact__intro"><p class="eyebrow accent-dark">YOUR NEXT 10 WEEKS</p><h2 class="display display--small">혼자 시행착오를 반복하는 대신,<br><span class="accent-dark">제대로 된 방향</span>을 만드세요.</h2><p>당신의 시작점에 맞춰 현실적인 실행 방향부터 함께 봅니다.</p></div>
-        <a class="button contact__cta" href="https://docs.google.com/forms/d/e/1FAIpQLSctL5VmR_gtbqxCW5Q4Xv03TB5KDNaMZtYvVpaHHqnAhSmRhw/viewform" target="_blank" rel="noopener noreferrer">1:1 상담 신청하기 <span>↗</span></a>
+        <div class="contact__intro"><p class="eyebrow accent-dark">YOUR NEXT 10 WEEKS</p><h2 class="display display--small">혼자 알아보는 단계에서,<br><span class="accent-dark">실행을 시작하는 단계로.</span></h2><p>현재 상황과 참여 조건을 먼저 확인한 뒤, 당신에게 맞는 시작 방향을 안내합니다.</p></div>
+        <span class="button contact__cta button--coming" aria-disabled="true">1:1 컨설팅 신청하기 <span>COMING SOON</span></span>
       </div>
     </section>
   </main>
@@ -522,6 +545,21 @@
         <figure><img data-proof-src="monthly" alt="2025년 9월 TikTok Shop 운영 대시보드"><figcaption>SEP 01–30, 2025 · MONTHLY PERFORMANCE</figcaption></figure>
         <figure><img data-proof-src="oct09" alt="2025년 10월 9일 TikTok Shop 운영 대시보드"><figcaption>OCT 09, 2025 · DAILY PERFORMANCE</figcaption></figure>
         <figure><img data-proof-src="oct10" alt="2025년 10월 10일 TikTok Shop 운영 대시보드"><figcaption>OCT 10, 2025 · DAILY PERFORMANCE</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="proof-modal" id="client-proof-modal" role="dialog" aria-modal="true" aria-labelledby="client-proof-modal-title" hidden>
+    <div class="proof-modal__panel">
+      <div class="proof-modal__head">
+        <div><p>CREATOR CONSULTING · PERFORMANCE</p><strong id="client-proof-modal-title">크리에이터 컨설팅 성과 기록</strong></div>
+        <button class="proof-modal__close" type="button" data-close-client-proof aria-label="컨설팅 성과 이미지 닫기">×</button>
+      </div>
+      <div class="proof-modal__images proof-modal__images--four">
+        <figure><img src="assets/consulting-proof-01.png" alt="2026년 8월 TikTok Shop 크리에이터 월간 GMV 기록"><figcaption>AUG 02–31, 2026 · MONTHLY GMV</figcaption></figure>
+        <figure><img src="assets/consulting-proof-02.jpg" alt="2026년 8월 25일 TikTok Shop 크리에이터 커미션 기록"><figcaption>AUG 25, 2026 · COMMISSION DATA</figcaption></figure>
+        <figure><img src="assets/consulting-proof-03.jpg" alt="2026년 8월 27일 TikTok Shop 크리에이터 커미션 기록"><figcaption>AUG 27, 2026 · COMMISSION DATA</figcaption></figure>
+        <figure><img src="assets/consulting-proof-04.jpg" alt="2026년 8월 26일 TikTok Shop 크리에이터 커미션 기록"><figcaption>AUG 26, 2026 · COMMISSION DATA</figcaption></figure>
       </div>
     </div>
   </div>
@@ -560,6 +598,22 @@
     proofModal.querySelector('[data-close-proof]').addEventListener('click', closeProofModal);
     proofModal.addEventListener('click', function (event) { if (event.target === proofModal) closeProofModal(); });
     document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !proofModal.hidden) closeProofModal(); });
+
+    const clientProofModal = document.getElementById('client-proof-modal');
+    document.querySelectorAll('[data-open-client-proof]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        clientProofModal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        clientProofModal.querySelector('[data-close-client-proof]').focus();
+      });
+    });
+    function closeClientProofModal() {
+      clientProofModal.hidden = true;
+      document.body.style.overflow = '';
+    }
+    clientProofModal.querySelector('[data-close-client-proof]').addEventListener('click', closeClientProofModal);
+    clientProofModal.addEventListener('click', function (event) { if (event.target === clientProofModal) closeClientProofModal(); });
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !clientProofModal.hidden) closeClientProofModal(); });
   </script>
 </body>
 </html>
